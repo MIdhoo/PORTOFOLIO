@@ -8,19 +8,18 @@ export default function Achievements() {
       <div className="container">
         <h2 className="h2" style={{ marginBottom: "40px", textAlign: "center" }}>{title}</h2>
 
-        {/* INLINE STYLE: Flex Column Rata Tengah */}
+        {/* INLINE STYLE: Column Container CENTER */}
         <div style={{
           display: "flex",
           flexDirection: "column",
-          alignItems: "center", /* Kunci Rata Tengah Vertikal */
+          alignItems: "center", /* PEMUSATAN VERTIKAL */
           gap: "24px",
           width: "100%"
         }}>
           {items.map((item, i) => (
-            <article key={i} className="card" style={{
+            <article key={i} className="card-base" style={{
               width: "100%",
-              maxWidth: "900px",
-              padding: "24px"
+              maxWidth: "900px"
             }}>
                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "10px" }}>
                   <h3 className="h2" style={{ fontSize: "18px", margin: 0 }}>{item.title}</h3>

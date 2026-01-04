@@ -8,21 +8,19 @@ export default function Projects() {
       <div className="container">
         <h2 className="h2" style={{ marginBottom: "40px", textAlign: "center" }}>{title}</h2>
 
-        {/* INLINE STYLE: Memaksa Flexbox Rata Tengah (Abaikan file CSS) */}
-        <div style={{ 
-          display: "flex", 
-          flexWrap: "wrap", 
-          justifyContent: "center", /* Kunci Rata Tengah */
+        {/* INLINE STYLE: Flex Container CENTER */}
+        <div style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center", /* PEMUSATAN HORIZONTAL */
           gap: "24px",
           width: "100%"
         }}>
           {items.map((p, i) => (
-            <article key={i} className="card" style={{ 
-              width: "100%", 
-              maxWidth: "380px", /* Batas lebar kartu */
-              flex: "1 1 300px", 
-              display: "flex", 
-              flexDirection: "column" 
+            <article key={i} className="card-base" style={{
+              width: "100%",
+              maxWidth: "380px", /* Lebar Kartu Project */
+              flex: "1 1 300px"  /* Responsif */
             }}>
               <div className="thumb">
                 {p.img ? (
