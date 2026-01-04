@@ -19,9 +19,7 @@ function App() {
       <SnowOverlay />
       
       {/* BANNER DEBUGGING - Hapus baris ini nanti kalau sudah fix */}
-      <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', background: 'red', color: 'white', zIndex: 999999, textAlign: 'center', fontSize: '12px', padding: '2px' }}>
-        UPDATE BERHASIL - V2.0 (Force Center)
-      </div>
+      
 
       <Navbar />
       <Hero />
@@ -40,3 +38,4 @@ function App() {
 }
 
 export default App;
+
