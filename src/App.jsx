@@ -1,5 +1,5 @@
 ﻿import "./styles/theme.css";
-import "./styles/app.css";
+import "./styles/styles.css";
 import "./styles/layers.css";
 
 import ParticleBackground from "./components/ParticleBackground";
@@ -38,4 +38,5 @@ export default function App() {
     </div>
   );
 }
+
 

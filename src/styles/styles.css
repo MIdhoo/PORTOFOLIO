@@ -88,3 +88,14 @@
   .form{ grid-template-columns: 1fr; }
   .h1 { font-size: 36px; }
 }
+
+/* FORCE LAYOUT UPDATE */
+.layout-flex-center {
+  display: flex !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  gap: 24px !important;
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin-inline: auto !important;
+}
