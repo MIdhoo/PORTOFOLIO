@@ -6,11 +6,11 @@ export default function Projects() {
   return (
     <section id="projects" className="section">
       <div className="container">
-        <h2 className="h2" style={{ marginBottom: "30px" }}>{title}</h2>
+        <h2 className="h2" style={{ marginBottom: "30px", textAlign: "center" }}>{title}</h2>
 
-        <div className="grid">
+        <div className="grid-center">
           {items.map((p, i) => (
-            <article key={i} className="card" style={{ gridColumn: "span 4" }}>
+            <article key={i} className="card project-card">
               <div className="thumb">
                 {p.img ? (
                   <img src={p.img} alt={p.title} loading="lazy" />
