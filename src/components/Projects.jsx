@@ -8,9 +8,10 @@ export default function Projects() {
       <div className="container">
         <h2 className="h2" style={{ marginBottom: "40px", textAlign: "center" }}>{title}</h2>
 
-        <div className="layout-flex-center">
+        {/* Container Centered Grid */}
+        <div className="grid-center">
           {items.map((p, i) => (
-            <article key={i} className="card-centered">
+            <article key={i} className="card-base card-box">
               <div className="thumb">
                 {p.img ? (
                   <img src={p.img} alt={p.title} loading="lazy" />

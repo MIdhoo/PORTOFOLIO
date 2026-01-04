@@ -8,10 +8,11 @@ export default function Achievements() {
       <div className="container">
         <h2 className="h2" style={{ marginBottom: "40px", textAlign: "center" }}>{title}</h2>
 
-        <div className="layout-flex-center">
+        {/* Container Centered */}
+        <div className="stack-center">
           {items.map((item, i) => (
-            <article key={i} className="card-centered" style={{ gap: "12px" }}>
-               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+            <article key={i} className="card-base card-wide">
+               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "10px" }}>
                   <h3 className="h2" style={{ fontSize: "18px", margin: 0 }}>{item.title}</h3>
                   <span className="badge" style={{ background: "rgba(56, 189, 248, 0.15)", color: "#38BDF8", borderColor: "transparent" }}>
                     {item.metric}

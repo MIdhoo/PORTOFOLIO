@@ -1,36 +1,27 @@
 ﻿import { content } from "../data/content";
 
 export default function Education() {
-  const list = Array.isArray(content.education) ? content.education : (content.education?.items ?? []);
-
-  // pastikan urut: SMA dulu, lalu Kuliah
-  const order = { sma: 1, smk: 1, umm: 2, kuliah: 2, campus: 2 };
-  const sorted = [...list].sort((a, b) => (order[a?.id] ?? 99) - (order[b?.id] ?? 99));
+  const { title, items } = content.education || { title: "Education", items: [] };
 
   return (
-    <section id="education" className="edu-section">
-      <h2 className="edu-title">Riwayat Pendidikan</h2>
-
-      <div className="edu-wrap">
-        {sorted.map((edu) => (
-          <article key={edu.id || edu.institution} className="edu-card">
-            <h3 className="edu-school">{edu.institution}</h3>
-
-            <div className="edu-meta">
-              <div><span>Jurusan:</span> {edu.major}</div>
-              <div><span>Lokasi:</span> {edu.location}</div>
-              <div><span>Periode:</span> {edu.periode}</div>
-            </div>
-
-            {edu.desc ? <p className="edu-desc">{edu.desc}</p> : null}
-
-            {Array.isArray(edu.highlights) && edu.highlights.length > 0 ? (
-              <ul className="edu-highlights">
-                {edu.highlights.map((h, i) => <li key={i}>{h}</li>)}
-              </ul>
-            ) : null}
-          </article>
-        ))}
+    <section id="education" className="section">
+      <div className="container">
+        <h2 className="h2" style={{ marginBottom: "40px", textAlign: "center" }}>{title}</h2>
+        
+        {/* Container Centered */}
+        <div className="stack-center">
+          {items.map((item, i) => (
+            <article key={i} className="card-base card-wide">
+              <h3 className="h2" style={{ fontSize: "20px", margin: "0 0 8px" }}>{item.school}</h3>
+              <div style={{ display: "flex", gap: "10px", color: "var(--primary)", fontSize: "14px", fontWeight: "bold", marginBottom: "12px" }}>
+                <span>{item.degree}</span>
+                <span>•</span>
+                <span>{item.year}</span>
+              </div>
+              <p className="p" style={{ fontSize: "15px" }}>{item.desc}</p>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );

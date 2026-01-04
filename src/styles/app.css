@@ -13,58 +13,57 @@
 .badges{ display:flex; flex-wrap:wrap; gap:10px; }
 .badge{ padding: 8px 12px; border-radius: 999px; border: 1px solid rgba(192,132,252,0.24); background: rgba(20,16,42,0.55); color: rgba(245,240,255,0.88); font-size: 13px; font-family: monospace; }
 
-/* === LAYOUT UTAMA: FLEXBOX CENTER (Agar Rata Tengah) === */
-.layout-flex-center {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  justify-content: center !important; /* KUNCI: Rata Tengah */
+/* === SYSTEM PEMUSATAN (THE FIX) === */
+/* Container untuk tumpukan vertikal (Education/Achievements) */
+.stack-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* KUNCI: Rata tengah horizontal */
   gap: 24px;
   width: 100%;
 }
 
-/* KARTU PROJECT & ACHIEVEMENT */
-.card-centered {
+/* Container untuk grid kotak-kotak (Projects) */
+.grid-center {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* KUNCI: Rata tengah horizontal */
+  gap: 24px;
   width: 100%;
-  max-width: 380px;  /* Lebar maksimal ideal */
-  flex: 1 1 300px;   /* Responsif: Minimal 300px */
-  padding: 24px;
+}
+
+/* CARD STYLES */
+.card-base {
   border-radius: var(--radius);
   border: 1px solid var(--border);
   background: rgba(20,16,42,0.50);
   backdrop-filter: blur(10px);
+  padding: 24px;
   transition: transform .25s ease, box-shadow .25s ease;
-  display: flex;
-  flex-direction: column;
+  width: 100%;
 }
-.card-centered:hover{
-  transform: translateY(-8px);
+.card-base:hover {
+  transform: translateY(-5px);
   box-shadow: 0 22px 70px rgba(168,85,247,0.18);
-  border-color: rgba(192,132,252,0.6);
+  border-color: rgba(192,132,252,0.45);
 }
 
-/* BUTTONS */
+/* Specific Sizes */
+.card-wide { max-width: 900px; } /* Untuk Education & Achievement */
+.card-box  { max-width: 380px; flex: 1 1 300px; display: flex; flex-direction: column; } /* Untuk Projects */
+
+/* COMPONENT STYLES */
 .btnRow{ display:flex; gap:12px; flex-wrap:wrap; margin-top:18px; }
 .btn{ padding: 12px 14px; border-radius: 14px; border: 1px solid rgba(192,132,252,0.35); background: rgba(168,85,247,0.15); color: var(--text); cursor:pointer; transition: all .2s ease; display:inline-flex; align-items:center; gap:8px; text-decoration: none; font-weight: 500; }
 .btn:hover{ transform: translateY(-2px); background: rgba(168,85,247,0.28); }
 .btnPrimary{ background: linear-gradient(135deg, rgba(168,85,247,0.95), rgba(56,189,248,0.70)); border-color: rgba(245,240,255,0.25); text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
 .btnGhost{ background: rgba(15,11,31,0.4); }
 
-/* THUMBNAIL */
 .thumb{ width: 100%; aspect-ratio: 16/9; border-radius: 14px; border: 1px solid rgba(192,132,252,0.15); overflow: hidden; margin-bottom: 16px; position: relative; background: #0F0B1F; }
 .thumb img{ width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-.card-centered:hover .thumb img { transform: scale(1.05); }
+.card-box:hover .thumb img { transform: scale(1.05); }
 
-/* EDUCATION SECTION (Sudah Dirapikan, Tidak Duplikat Lagi) */
-.education-section{ padding: 64px 0; }
-.education-container{ max-width: 980px; margin: 0 auto; padding: 0 20px; }
-.education-stack{ display: grid; grid-template-columns: 1fr; gap: 18px; justify-items: center; }
-.education-card{ width: 100%; max-width: 920px; padding: 26px; border-radius: 16px; background: rgba(9, 11, 22, 0.55); border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 10px 30px rgba(0,0,0,0.25); backdrop-filter: blur(10px); margin-bottom: 18px; }
-.education-title{ font-size: 22px; font-weight: 800; margin: 0 0 10px; color: #fff; }
-.education-meta{ display: grid; gap: 6px; margin: 0 0 12px; color: rgba(255,255,255,0.84); }
-.education-meta span{ font-weight: 700; color: var(--primary2); }
-.education-desc{ margin: 0 0 10px; color: rgba(255,255,255,0.82); line-height: 1.6; }
-
-/* CONTACT FORM & SNOW */
+/* FORM & SNOW */
 .form{ display:grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 14px; }
 .field{ display:flex; flex-direction: column; gap: 8px; }
 .input, .textarea{ padding: 14px; border-radius: 14px; border: 1px solid rgba(192,132,252,0.25); background: rgba(15,11,31,0.45); color: var(--text); outline: none; transition: border-color 0.2s; }
@@ -79,7 +78,6 @@
 
 /* RESPONSIVE */
 @media (max-width: 600px){
-  .card-centered { max-width: 100%; flex: 1 1 100%; }
   .form{ grid-template-columns: 1fr; }
   .h1 { font-size: 36px; }
 }
