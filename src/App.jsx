@@ -1,6 +1,7 @@
-﻿import "./styles/theme.css";
-import "./styles/app.css";
-import "./styles/layers.css";
+﻿import "./styles/app.css";
+
+
+
 
 import ParticleBackground from "./components/ParticleBackground";
 import SnowOverlay from "./components/SnowOverlay";
@@ -38,6 +39,7 @@ export default function App() {
     </div>
   );
 }
+
 
 
 
