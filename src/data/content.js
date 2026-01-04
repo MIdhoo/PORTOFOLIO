@@ -1,134 +1,81 @@
-﻿/**
- * SAFE CONTENT (anti crash)
- * - Kalau ada field yang belum kamu isi, UI tetap jalan (tidak blank)
- * - Kamu tinggal ganti data di RAW_CONTENT
- */
-const RAW_CONTENT = {
+﻿export const content = {
   profile: {
-    name: "Idhoo",
-    role: "Developer",
-    tagline: "Membangun UI modern, REST API, integrasi AI, dan deployment.",
-    cvUrl: ""
+    name: "Nama Anda",
+    role: "Fullstack Developer",
+    tagline: "Membangun solusi digital yang estetis dan fungsional.",
+    location: "Indonesia",
+    cvUrl: "#", // Masukkan link CV Google Drive di sini
   },
-
-  navLinks: [
-    { label: "Home", href: "#home" },
-    { label: "About", href: "#about" },
-    { label: "Skills", href: "#skills" },
-    { label: "Education", href: "#education" },
-    { label: "Projects", href: "#projects" },
-    { label: "Contact", href: "#contact" }
-  ],
-
   socials: [
     { label: "GitHub", href: "https://github.com/username" },
     { label: "LinkedIn", href: "https://linkedin.com/in/username" },
-    { label: "Email", href: "mailto:emailkamu@gmail.com" },
-    { label: "WhatsApp", href: "https://wa.me/62XXXXXXXXXXX" }
+    { label: "Email", href: "mailto:email@example.com" },
   ],
-
   about: {
-    title: "Tentang Saya",
-    desc: "Saya adalah anak IT yang suka membangun produk dari nol sampai rapi. Terbiasa bikin UI modern, REST API, integrasi AI, dan deployment.",
-    points: []
+    title: "About Me",
+    desc: "Halo! Saya adalah pengembang software yang berfokus pada teknologi web modern. Saya senang mempelajari hal baru dan memecahkan masalah kompleks menjadi solusi yang sederhana.",
   },
-
-  skills: [
-    { group: "Frontend", items: ["React", "Vite", "HTML", "CSS", "JavaScript"] },
-    { group: "Backend", items: ["Node.js", "Express", "Laravel", "Python", "REST API"] },
-    { group: "Tools", items: ["Git", "Postman", "Linux (basic)"] }
-  ],
-
-  education: [
-    {
-      id: "sma",
-      institution: "SMA Negeri 1 Dringu",
-      major: "Ilmu Pengetahuan Alam (IPA)",
-      location: "Dringu, Probolinggo, Jawa Timur, Indonesia",
-      periode: "2018-2021",
-      desc: "Saya mengambil jurusan IPA dengan fokus pada Matematika, Fisika, Kimia, dan Biologi.",
-      highlights: [
-        "Fokus: Matematika, Fisika, Kimia, Biologi",
-        "Latihan problem solving & logika",
-        "Kebiasaan belajar terstruktur"
-      ]
-    },
-    {
-      id: "umm",
-      institution: "Universitas Muhammadiyah Malang",
-      major: "Teknik Informatika",
-      location: "Malang, Jawa Timur, Indonesia",
-      periode: "2021-sekarang",
-      desc: "Di UMM saya menekuni bidang Teknik Informatika dengan konsentrasi pengembangan aplikasi web, basis data, dan AI.",
-      highlights: [
-        "Web development & database",
-        "API development & integrasi",
-        "Eksplorasi AI untuk otomasi"
-      ]
-    }
-  ],
-
-  // Biar Projects/Achievements tidak crash meski kosong
-  projects: { title: "Projects", items: [] },
-  achievements: { title: "Achievements", items: [] },
-
+  skills: {
+    title: "Tech Stack",
+    items: [
+      "React", "Next.js", "Vite", "Tailwind CSS", 
+      "Node.js", "PostgreSQL", "Git", "Figma"
+    ]
+  },
+  projects: {
+    title: "Featured Projects",
+    items: [
+      {
+        id: 1,
+        title: "E-Commerce Dashboard",
+        desc: "Aplikasi manajemen stok dan penjualan dengan grafik analisis real-time.",
+        img: "", 
+        href: "https://demo-link.com",
+        source: "https://github.com/username/repo",
+      },
+      {
+        id: 2,
+        title: "Personal Portfolio V2",
+        desc: "Website portofolio interaktif dengan animasi framer-motion dan tema dark mode.",
+        img: "", 
+        href: "https://portfolio.com",
+        source: "https://github.com/username/repo",
+      },
+      {
+        id: 3,
+        title: "Task Management App",
+        desc: "Aplikasi produktivitas untuk mengatur tugas harian dengan fitur drag-and-drop.",
+        img: "",
+        href: "",
+        source: "",
+      }
+    ]
+  },
+  achievements: {
+    title: "Achievements & Certifications",
+    items: [
+      {
+        id: 1,
+        title: "Juara 1 Web Design Nasional",
+        metric: "2024",
+        desc: "Memenangkan kompetisi desain web tingkat nasional yang diselenggarakan oleh Kominfo."
+      },
+      {
+        id: 2,
+        title: "AWS Certified Cloud Practitioner",
+        metric: "Licence",
+        desc: "Sertifikasi resmi dari Amazon Web Services untuk pemahaman dasar cloud computing."
+      },
+      {
+        id: 3,
+        title: "Hackathon FinTech Asia",
+        metric: "Finalist",
+        desc: "Masuk 10 besar finalis dari 500 tim di seluruh Asia dalam pengembangan solusi keuangan."
+      }
+    ]
+  },
   contact: {
-    title: "Kontak",
-    desc: "Kalau kamu punya proyek, kolaborasi, atau pertanyaan, silakan hubungi saya lewat sosial media di atas."
-  },
-
-  footer: {
-    text: "© 2026 Idhoo. Built with React + Vite."
+    title: "Let's Connect",
+    desc: "Tertarik bekerja sama atau punya pertanyaan? Kirimkan pesan di bawah ini."
   }
 };
-
-// ---------- SAFE PROXY ----------
-const NIL = new Proxy(function () {}, {
-  get(_t, prop) {
-    if (prop === Symbol.toPrimitive) return () => "";
-    if (prop === "toString") return () => "";
-    if (prop === "valueOf") return () => "";
-    if (prop === "length") return 0;
-    if (prop === Symbol.iterator) return function* () {};
-    if (prop === "map" || prop === "filter" || prop === "flatMap") return () => [];
-    if (prop === "reduce") return (_fn, init) => (init ?? "");
-    return NIL;
-  },
-  apply() {
-    return "";
-  }
-});
-
-const cache = new WeakMap();
-function safeWrap(val) {
-  if (val === null || val === undefined) return NIL;
-  const t = typeof val;
-  if (t !== "object" && t !== "function") return val;
-
-  if (cache.has(val)) return cache.get(val);
-
-  const p = new Proxy(val, {
-    get(target, prop) {
-      // allow array/function methods to keep correct "this"
-      if (prop in target) {
-        const v = target[prop];
-        if (typeof v === "function") return v.bind(target);
-        return safeWrap(v);
-      }
-
-      // common safe fallbacks
-      if (prop === "length") return 0;
-      if (prop === Symbol.iterator) return function* () {};
-      if (prop === "map" || prop === "filter" || prop === "flatMap") return () => [];
-      if (prop === "reduce") return (_fn, init) => (init ?? "");
-      if (prop === Symbol.toPrimitive) return () => "";
-
-      return NIL;
-    }
-  });
-
-  cache.set(val, p);
-  return p;
-}
-
-export const content = safeWrap(RAW_CONTENT);

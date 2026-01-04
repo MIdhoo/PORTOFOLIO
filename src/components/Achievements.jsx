@@ -1,26 +1,27 @@
 ﻿import { content } from "../data/content";
 
 export default function Achievements() {
-  const raw = content.achievements;
-  const title = (raw && !Array.isArray(raw) && raw.title) ? raw.title : "Achievements";
-  const items = Array.isArray(raw) ? raw : (raw?.items ?? []);
+  const { title, items } = content.achievements;
 
   return (
-    <section id="achievements" className="edu-section">
-      <h2 className="edu-title">{title}</h2>
+    <section id="achievements" className="section">
+      <div className="container">
+        <h2 className="h2" style={{ marginBottom: "30px" }}>{title}</h2>
 
-      {items.length === 0 ? (
-        <p className="edu-muted">Belum ada achievement. Bisa kamu isi nanti di src/data/content.js</p>
-      ) : (
-        <div className="edu-wrap">
-          {items.map((a, i) => (
-            <article key={a.id || i} className="edu-card">
-              <h3 className="edu-school">{a.title || "Achievement"}</h3>
-              {a.desc ? <p className="edu-desc">{a.desc}</p> : null}
+        <div className="grid">
+          {items.map((item, i) => (
+            <article key={i} className="card" style={{ gridColumn: "span 6", display: "flex", flexDirection: "column", gap: "10px" }}>
+               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+                  <h3 className="h2" style={{ fontSize: "18px", margin: 0 }}>{item.title}</h3>
+                  <span className="badge" style={{ background: "rgba(56, 189, 248, 0.15)", color: "#38BDF8", borderColor: "transparent" }}>
+                    {item.metric}
+                  </span>
+               </div>
+               <p className="p" style={{ fontSize: "14px" }}>{item.desc}</p>
             </article>
           ))}
         </div>
-      )}
+      </div>
     </section>
   );
 }
