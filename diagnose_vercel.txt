@@ -1,0 +1,121 @@
+﻿==== DIAGNOSE 2026-01-03 20.47.21 ====
+== ENV ==
+pwd: D:\Portofolio React\my-portfolio
+node: v24.12.0
+npm : 11.6.2
+
+== LOCAL FILE CHECK ==
+index.html => True
+vite.config.js => True
+src\main.jsx => True
+src\App.jsx => True
+src\data\content.js => True
+
+---- HEAD index.html ----
+  1: <!DOCTYPE html>
+  2: <html lang="en">
+  3:   <head>
+  4:     <meta charset="UTF-8" />
+  5:     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  6:     <title>Portofolio</title>
+  7:   </head>
+  8:   <body>
+  9:     <div id="root"></div>
+ 10:     <script type="module" src="/src/main.jsx"></script>
+ 11:   </body>
+ 12: </html>
+
+---- HEAD src\main.jsx ----
+  1: import React from 'react';
+  2: import ReactDOM from 'react-dom/client';
+  3: import App from './App.jsx';
+  4: 
+  5: ReactDOM.createRoot(document.getElementById('root')).render(
+  6:   <React.StrictMode>
+  7:     <App />
+  8:   </React.StrictMode>
+  9: );
+
+---- HEAD src\App.jsx ----
+  1: import "./styles/theme.css";
+  2: import "./styles/app.css";
+  3: 
+  4: import ParticleBackground from "./components/ParticleBackground";
+  5: import SnowOverlay from "./components/SnowOverlay";
+  6: import Navbar from "./components/Navbar";
+  7: import Hero from "./components/Hero";
+  8: import About from "./components/About";
+  9: import Skills from "./components/Skills";
+ 10: import Education from "./components/Education.jsx";
+ 11: import Projects from "./components/Projects";
+ 12: import Achievements from "./components/Achievements";
+ 13: import Contact from "./components/Contact";
+ 14: import Footer from "./components/Footer";
+ 15: 
+ 16: export default function App() {
+ 17:   return (
+ 18:     <>
+ 19:       <ParticleBackground />
+ 20:       <SnowOverlay />
+ 21: <Navbar />
+ 22:       <main>
+ 23:         <Hero />
+ 24:         <About />
+ 25:         <Skills />
+ 26:       <Education />
+ 27:       <Education />
+ 28:         <Projects />
+ 29:         <Achievements />
+ 30:         <Contact />
+ 31:       </main>
+ 32:       <Footer />
+ 33:     </>
+ 34:   );
+ 35: }
+ 36: 
+ 37: 
+ 38: 
+ 39: 
+ 40: 
+ 41: 
+ 42: 
+
+== LOCAL BUILD ==
+
+> my-portfolio@0.0.0 build
+> vite build
+
+node.exe : [33mYou or a plugin you are using have set `optimizeDeps.esbuildOptions` but this option is now deprecated. Vite now uses Rolldown to optimize the dependencies. Plea
+se use `optimizeDeps.rolldownOptions` instead.[39m
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([33mYou or a p...` instead.[39m:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[36mrolldown-vite v7.3.0 [32mbuilding client environment for production...[36m[39m
+[2K
+transforming...Γ£ô 2716 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.39 kB Γöé gzip:   0.28 kB
+dist/assets/index-BAWua2jV.css    5.52 kB Γöé gzip:   1.94 kB
+dist/assets/index-6f6kvXoK.js   512.26 kB Γöé gzip: 155.27 kB
+[32mΓ£ô built in 402ms[39m
+[33m[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+
+
+== VERCEL PROD CHECK ==
+GET https://idhoo-porto.vercel.app => 200
+HTML length: 397
+Has #root div: True
+JS asset: /assets/index-6f6kvXoK.js
+CSS asset: /assets/index-BAWua2jV.css
+HEAD https://idhoo-porto.vercel.app/assets/index-BAWua2jV.css => 200 | len=5526
+HEAD https://idhoo-porto.vercel.app/assets/index-6f6kvXoK.js => 200 | len=512269
+
+==== END ====

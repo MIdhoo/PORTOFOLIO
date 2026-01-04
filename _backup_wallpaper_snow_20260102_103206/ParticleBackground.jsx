@@ -1,0 +1,34 @@
+﻿import Particles from "react-tsparticles";
+import { loadFull } from "tsparticles";
+import { useCallback } from "react";
+
+export default function ParticleBackground() {
+  const particlesInit = useCallback(async (engine) => {
+    await loadFull(engine);
+  }, []);
+
+  return (
+    <Particles
+      id="tsparticles"
+      init={particlesInit}
+      options={{
+        fullScreen: { enable: true, zIndex: -1 },
+        background: { color: { value: "transparent" } },
+        fpsLimit: 60,
+        detectRetina: true,
+        particles: {
+          number: { value: 50, density: { enable: true, area: 950 } },
+          color: { value: ["#A855F7", "#C084FC", "#38BDF8"] },
+          opacity: { value: 0.25 },
+          size: { value: { min: 1, max: 3 } },
+          move: { enable: true, speed: 0.45, direction: "none", outModes: { default: "out" } },
+          links: { enable: true, distance: 150, opacity: 0.12, width: 1, color: "#C084FC" },
+        },
+        interactivity: {
+          events: { onHover: { enable: true, mode: "repulse" }, resize: true },
+          modes: { repulse: { distance: 90, duration: 0.25 } },
+        },
+      }}
+    />
+  );
+}

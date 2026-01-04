@@ -1,0 +1,211 @@
+﻿.container{
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+}
+
+.glass{
+  background: rgba(15, 11, 31, 0.55);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius);
+}
+
+.section{
+  padding: 72px 0;
+  position: relative;
+}
+.section::before{
+  content:"";
+  display:block;
+  height:1px;
+  margin: 0 0 22px;
+  background: linear-gradient(90deg, transparent, rgba(192,132,252,0.35), transparent);
+}
+
+.h1{ font-size: clamp(32px, 5vw, 54px); letter-spacing: -0.03em; margin: 0; }
+.h2{ font-size: clamp(22px, 3vw, 30px); margin: 0 0 18px; }
+.p{ color: var(--text2); line-height: 1.7; margin: 0; }
+
+.small{ color: var(--muted); font-size: 14px; }
+.badges{ display:flex; flex-wrap:wrap; gap:10px; }
+.badge{
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(192,132,252,0.24);
+  background: rgba(20,16,42,0.55);
+  color: rgba(245,240,255,0.88);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "JetBrains Mono", monospace;
+  font-size: 13px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 18px;
+}
+
+.card{
+  padding: 18px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: rgba(20,16,42,0.50);
+  backdrop-filter: blur(10px);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 22px 70px rgba(168,85,247,0.14);
+  border-color: rgba(192,132,252,0.34);
+}
+
+/* Buttons */
+.btnRow{ display:flex; gap:12px; flex-wrap:wrap; margin-top:18px; }
+.btn{
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(192,132,252,0.35);
+  background: rgba(168,85,247,0.15);
+  color: var(--text);
+  cursor:pointer;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
+.btn:hover{ transform: translateY(-2px); background: rgba(168,85,247,0.22); }
+.btnPrimary{
+  background: linear-gradient(135deg, rgba(168,85,247,0.95), rgba(56,189,248,0.70));
+  border-color: rgba(245,240,255,0.25);
+}
+.btnGhost{
+  background: rgba(15,11,31,0.25);
+}
+
+/* Project thumbnail */
+.thumb{
+  width: 100%;
+  height: 170px;
+  border-radius: 16px;
+  border: 1px solid rgba(192,132,252,0.22);
+  overflow: hidden;
+  background:
+    radial-gradient(900px 420px at 20% 10%, rgba(168,85,247,0.25), transparent 60%),
+    radial-gradient(900px 420px at 80% 30%, rgba(56,189,248,0.18), transparent 65%),
+    rgba(20,16,42,0.55);
+  margin-bottom: 14px;
+  position: relative;
+}
+.thumb img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.92;
+  transform: scale(1.01);
+}
+.thumb::after{
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(180deg, transparent, rgba(7,4,18,0.35));
+}
+
+/* Timeline (Achievements) */
+.timeline{
+  position: relative;
+  padding-left: 18px;
+}
+.timeline::before{
+  content:"";
+  position:absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 6px;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(192,132,252,0.0), rgba(192,132,252,0.5), rgba(56,189,248,0.25));
+}
+.tItem{
+  position: relative;
+  margin-bottom: 14px;
+}
+.tDot{
+  position:absolute;
+  left: -2px;
+  top: 18px;
+  width: 14px; height: 14px;
+  border-radius: 999px;
+  background: rgba(168,85,247,0.9);
+  box-shadow: 0 0 0 6px rgba(168,85,247,0.12);
+}
+.tCard{
+  margin-left: 16px;
+  padding: 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: rgba(20,16,42,0.50);
+  backdrop-filter: blur(10px);
+}
+
+/* Contact form */
+.form{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 14px;
+}
+.field{
+  display:flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.input, .textarea{
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(192,132,252,0.25);
+  background: rgba(15,11,31,0.35);
+  color: var(--text);
+  outline: none;
+}
+.textarea{ min-height: 120px; grid-column: 1 / -1; resize: vertical; }
+.formActions{ margin-top: 12px; display:flex; gap:12px; flex-wrap:wrap; grid-column: 1 / -1; }
+.notice{ margin-top: 10px; color: rgba(245,240,255,0.62); font-size: 14px; }
+
+@media (max-width: 860px){
+  .section{ padding: 56px 0; }
+  .grid{ grid-template-columns: repeat(6, 1fr); }
+}
+@media (max-width: 560px){
+  .grid{ grid-template-columns: repeat(1, 1fr); }
+  .form{ grid-template-columns: 1fr; }
+}
+
+/* Snow overlay safety (biar tidak ganggu klik) */
+#tsparticles-snow, #tsparticles-snow canvas,
+#tsparticles-aurora, #tsparticles-aurora canvas {
+  pointer-events: none !important;
+}
+
+
+/* Force snow overlay on top */
+#tsparticles-snow, #tsparticles-snow canvas{
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 9999 !important;
+  pointer-events: none !important;
+}
+
+
+/* Force tsParticles visibility + no click blocking */
+#snow, #snow canvas{
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 99999 !important;
+  pointer-events: none !important;
+  opacity: 1 !important;
+}
+#aurora, #aurora canvas{
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
+

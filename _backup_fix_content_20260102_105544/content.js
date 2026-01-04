@@ -1,0 +1,48 @@
+﻿export const content = {
+  profile: {
+    name: "Nama Kamu",
+    role: "Full-Stack Developer | AI Enthusiast",
+    tagline: "Saya membangun web yang rapi, cepat, dan enak dipakai. Fokus di UI modern, API, dan otomasi.",
+    location: "Indonesia",
+    cvUrl: "#",
+  },
+
+  socials: [
+    { label: "GitHub", href: "https://github.com/username" },
+    { label: "LinkedIn", href: "https://linkedin.com/in/username" },
+    { label: "Email", href: "mailto:emailkamu@gmail.com" },
+    { label: "WhatsApp", href: "https://wa.me/62xxxxxxxxxx" },
+  ],
+
+  about: {
+    title: "Tentang Saya",
+    desc:
+      "Saya adalah anak IT yang suka membangun produk dari nol sampai rapi. Terbiasa bikin UI modern, REST API, integrasi AI, dan deployment. Saya suka sistem yang clean, cepat, dan gampang dirawat."
+  },
+
+  skills: [
+    { group: "Frontend", items: ["React", "Vite", "HTML", "CSS", "JavaScript"] },
+    { group: "Backend", items: ["Node.js", "Express", "Laravel", "Python", "REST API"] },
+    { group: "Tools", items: ["Git", "Postman", "Linux (basic)"] },
+  ],
+
+  projects: [],
+
+  links: { demo: "#", github: "#" },
+    },
+    {
+      title: "Harmony Residence",
+      desc: "Website properti dengan listing rumah, detail, dan dashboard admin sederhana.",
+      stack: ["Laravel", "MySQL", "Bootstrap"],
+      links: { demo: "#", github: "#" },
+    },
+  ],
+
+  achievements: [],
+
+  contact: {
+    title: "Kontak",
+    desc: "Kalau kamu punya proyek, kolaborasi, atau lowongan, gas kirim pesan.",
+  },
+};
+

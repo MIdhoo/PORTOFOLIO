@@ -1,0 +1,14 @@
+﻿/* Layering fix: background selalu di belakang, konten selalu di depan */
+.app-shell { min-height: 100vh; position: relative; overflow-x: hidden; }
+.bg-layer  { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.content-layer { position: relative; z-index: 2; }
+
+/* Biar section rapi di tengah */
+.section-wrap {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: 96px 20px 56px;
+}
+@media (max-width: 640px){
+  .section-wrap{ padding-top: 84px; }
+}
