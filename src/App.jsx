@@ -1,45 +1,42 @@
-﻿import "./styles/app.css";
-
-
-
-
-import ParticleBackground from "./components/ParticleBackground";
-import SnowOverlay from "./components/SnowOverlay";
+﻿import React from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Skills from "./components/Skills";
-import Education from "./components/Education.jsx";
 import Projects from "./components/Projects";
+import Education from "./components/Education";
 import Achievements from "./components/Achievements";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import ParticleBackground from "./components/ParticleBackground";
+import SnowOverlay from "./components/SnowOverlay";
+import "./styles/app.css";
 
-export default function App() {
+function App() {
   return (
-    <div className="app-shell">
-      <div className="bg-layer">
-        <ParticleBackground />
-        <SnowOverlay />
+    <>
+      <ParticleBackground />
+      <SnowOverlay />
+      
+      {/* BANNER DEBUGGING - Hapus baris ini nanti kalau sudah fix */}
+      <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', background: 'red', color: 'white', zIndex: 999999, textAlign: 'center', fontSize: '12px', padding: '2px' }}>
+        UPDATE BERHASIL - V2.0 (Force Center)
       </div>
 
-      <div className="content-layer">
-        <Navbar />
-        <main>
-          <Hero />
-          <About />
-          <Skills />
-          <Education />
-          <Projects />
-          <Achievements />
-          <Contact />
-        </main>
-        <Footer />
-      </div>
-    </div>
+      <Navbar />
+      <Hero />
+      <About />
+      <Skills />
+      
+      {/* Bagian yang kita perbaiki */}
+      <Projects />
+      <Education />
+      <Achievements />
+      
+      <Contact />
+      <Footer />
+    </>
   );
 }
 
-
-
-
+export default App;
