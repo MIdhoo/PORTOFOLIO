@@ -8,10 +8,20 @@ export default function Education() {
       <div className="container">
         <h2 className="h2" style={{ marginBottom: "40px", textAlign: "center" }}>{title}</h2>
         
-        {/* Container Centered */}
-        <div className="stack-center">
+        {/* INLINE STYLE: Flex Column Rata Tengah */}
+        <div style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center", /* Kunci Rata Tengah Vertikal */
+          gap: "24px",
+          width: "100%"
+        }}>
           {items.map((item, i) => (
-            <article key={i} className="card-base card-wide">
+            <article key={i} className="card" style={{
+              width: "100%",
+              maxWidth: "900px", /* Lebar maksimal agar rapi */
+              padding: "24px"
+            }}>
               <h3 className="h2" style={{ fontSize: "20px", margin: "0 0 8px" }}>{item.school}</h3>
               <div style={{ display: "flex", gap: "10px", color: "var(--primary)", fontSize: "14px", fontWeight: "bold", marginBottom: "12px" }}>
                 <span>{item.degree}</span>
