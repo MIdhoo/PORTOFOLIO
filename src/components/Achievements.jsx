@@ -6,7 +6,7 @@ export default function Achievements() {
   return (
     <section id="achievements" className="section">
       <div className="container">
-        <h2 className="h2" style={{ marginBottom: "40px", textAlign: "center" }}>{title}.</h2>
+        <h2 className="h2" style={{ marginBottom: "40px", textAlign: "center" }}>{title}</h2>
 
         <div className="layout-flex-center">
           {items.map((item, i) => (
